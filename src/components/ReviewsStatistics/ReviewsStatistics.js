@@ -15,12 +15,12 @@ class ReviewsStatistics extends Component {
         return (
             <Container style={this.style.container}>
                 <Statistic>
-                    <Statistic.Value>122</Statistic.Value>
+                    <Statistic.Value>{this.props.nb_reviews}</Statistic.Value>
                     <Statistic.Label>Avis</Statistic.Label>
                 </Statistic>
                 <br />
                 <Statistic>
-                    <Statistic.Value>4.75/5</Statistic.Value>
+                    <Statistic.Value>{this.props.rating}/5</Statistic.Value>
                     <Rating maxRating={5} defaultRating={4} icon='star' size='massive' className="centered" />
                 </Statistic>
             </Container>
