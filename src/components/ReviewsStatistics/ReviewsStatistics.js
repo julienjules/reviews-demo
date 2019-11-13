@@ -12,16 +12,17 @@ class ReviewsStatistics extends Component {
     }
 
     render() {
+        const {nb_reviews, rating} = this.props;
         return (
             <Container style={this.style.container}>
                 <Statistic>
-                    <Statistic.Value>{this.props.nb_reviews}</Statistic.Value>
-                    <Statistic.Label>Avis</Statistic.Label>
+                    <Statistic.Value>{nb_reviews}</Statistic.Value>
+                    <Statistic.Label>Reviews</Statistic.Label>
                 </Statistic>
                 <br />
                 <Statistic>
-                    <Statistic.Value>{this.props.rating}/5</Statistic.Value>
-                    <Rating maxRating={5} defaultRating={4} icon='star' size='massive' className="centered" />
+                    <Statistic.Value>{rating}/5</Statistic.Value>
+                    <Rating maxRating={5} rating={rating} icon='star' size='massive' className="centered" />
                 </Statistic>
             </Container>
         )

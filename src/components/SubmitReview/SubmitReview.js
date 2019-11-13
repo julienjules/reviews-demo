@@ -7,21 +7,20 @@ class SubmitReview extends Component {
         firstName: "",
         lastName: "",
         testimonial: "",
-        rating: 0
-    }
-
-    constructor(props) {
-        super(props)
+        rating: 0, 
+        date: null
     }
 
     onFormSubmit = (event) => {
         event.preventDefault()
         const obj = this.state
+        obj.date = new Date()
         this.setState({
             firstName: "",
             lastName: "",
             testimonial: "",
-            rating: 0
+            rating: 0, 
+            date: null
         })
         this.props.onFormSubmit(obj)
     }
