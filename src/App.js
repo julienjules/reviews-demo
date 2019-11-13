@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   handleFormSubmit = (obj) => {
-    this.props.firebase.addReview(obj)
+    console.log(obj)
   }
 
   render() {
