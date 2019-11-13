@@ -12,8 +12,7 @@ class App extends Component {
   state = {
     nb_reviews: 0,
     rating: "0",
-    reviews: [{ firstName: "Julien", lastName: "Robidet", testimonial: "Hello", rating: 5, }],
-    statistics: false
+    reviews: [{ firstName: "Julien", lastName: "Robidet", testimonial: "Hello", rating: 5, }]
   }
 
   constructor(props) {
