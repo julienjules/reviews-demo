@@ -9,32 +9,15 @@ import SubmitReview from './components/SubmitReview/SubmitReview';
 
 class App extends Component {
 
-  state = { nb_reviews: 0, rating: "0", reviews: [], statistics: false }
+  state = {
+    nb_reviews: 0,
+    rating: "0",
+    reviews: [{ firstName: "Julien", lastName: "Robidet", testimonial: "Hello", rating: 5, }],
+    statistics: false
+  }
 
   constructor(props) {
     super(props)
-
-    this.props.firebase.statistics().onSnapshot((doc) => {
-      const { nb_reviews, rating } = doc.data()
-      this.setState({ nb_reviews: nb_reviews, rating: rating })
-    });
-
-    this.props.firebase.reviews().orderBy('date', 'desc').onSnapshot((querySnapshot) => {
-      var reviews = [];
-      querySnapshot.forEach(function (doc) {
-        reviews.push(doc.data());
-      });
-      this.setState({ reviews: reviews })
-    })
-
-    this.props.firebase.remoteConfig.fetchAndActivate()
-      .then(() => {
-        this.setState({ statistics: this.props.firebase.remoteConfig.getValue("statistics").asBoolean() })
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-
   }
 
   handleFormSubmit = (obj) => {
