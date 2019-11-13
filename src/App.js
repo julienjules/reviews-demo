@@ -31,19 +31,13 @@ class App extends Component {
       }
     }
 
-    const { nb_reviews, rating, reviews, statistics } = this.state
+    const { reviews } = this.state
 
     return (
       <Container style={style.container} >
         <Header as='h1' content='Hey submit your review!' textAlign='center' />
         <SubmitReview onFormSubmit={this.handleFormSubmit} />
         <Divider />
-        {statistics &&
-          <div>
-            <ReviewsStatistics nb_reviews={nb_reviews} rating={rating} />
-            <Divider />
-          </div>
-        }
         <Header as='h1' content='Latest reviews' textAlign='center' />
         <ReviewsList items={reviews} />
       </Container>
