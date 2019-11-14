@@ -8,12 +8,9 @@ exports.createReview = functions.firestore
     .onCreate((snap, context) => {
         const newValue = snap.data();
         const rating = newValue.rating;
+        var docRef = db.collection("statistics").doc("main");
 
-        console.log(rating);
-
-        var docRef = db.doc('score/main');
-
-        db.runTransaction(transaction => {
+        return db.runTransaction(transaction => {
             return transaction.get(docRef).then(doc => {
                 if (!doc.exists) {
                     console.log("Document does not exist!");
@@ -23,9 +20,5 @@ exports.createReview = functions.firestore
                 const totalRating = (newSumScore / newNbReviews).toFixed(1);
                 return transaction.update(docRef, { nb_reviews: newNbReviews, sum_score: newSumScore, rating: totalRating });
             });
-        }).then(() => {
-            return console.log("Transaction successfully committed!");
-        }).catch(error => {
-            return console.log("Transaction failed: ", error);
-        });
+        })
     });
