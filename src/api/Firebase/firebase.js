@@ -26,10 +26,9 @@ class Firebase {
         });
     }
 
-    // user = uid => this.db.collection('users').doc(uid);
-    addReview = obj => this.db.collection('reviews').add(obj)
-    statistics = () => this.db.collection("score").doc("main")
-    reviews = () => this.db.collection("reviews")
+    // addReview = obj => this.db.collection('reviews').add(obj)
+    // statistics = () => this.db.collection("statistics").doc("main")
+    // reviews = () => this.db.collection("reviews")
 
 }
 
